@@ -4,14 +4,14 @@ import 'package:simple_live_app/widgets/status/app_empty_widget.dart';
 import 'package:simple_live_app/widgets/status/app_error_widget.dart';
 import 'package:simple_live_app/widgets/status/app_loadding_widget.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:flutter_easyrefresh/easy_refresh.dart';
+import 'package:easy_refresh/easy_refresh.dart';
 import 'package:get/get.dart';
 
 class PageGridView extends StatelessWidget {
   final BasePageController pageController;
   final IndexedWidgetBuilder itemBuilder;
   final EdgeInsets? padding;
-  final bool firstRefresh;
+  final bool refreshOnStart;
   final Function()? onLoginSuccess;
   final bool showPageLoadding;
   final double crossAxisSpacing, mainAxisSpacing;
@@ -20,7 +20,7 @@ class PageGridView extends StatelessWidget {
     required this.itemBuilder,
     required this.pageController,
     this.padding,
-    this.firstRefresh = false,
+    this.refreshOnStart = false,
     this.showPageLoadding = false,
     this.onLoginSuccess,
     this.crossAxisSpacing = 0.0,
@@ -36,14 +36,14 @@ class PageGridView extends StatelessWidget {
         children: [
           EasyRefresh(
             header: MaterialHeader(
-              completeDuration: const Duration(milliseconds: 400),
+              processedDuration: const Duration(milliseconds: 400),
             ),
             footer: MaterialFooter(
-              completeDuration: const Duration(milliseconds: 400),
+              processedDuration: const Duration(milliseconds: 400),
             ),
-            scrollController: pageController.scrollController,
+            //scrollController: pageController.scrollController,
             controller: pageController.easyRefreshController,
-            firstRefresh: firstRefresh,
+            refreshOnStart: refreshOnStart,
             onLoad: pageController.loadData,
             onRefresh: pageController.refreshData,
             child: MasonryGridView.count(

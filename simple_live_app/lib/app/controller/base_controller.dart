@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 
 import 'package:simple_live_app/app/log.dart';
 
-import 'package:flutter_easyrefresh/easy_refresh.dart';
+import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 
@@ -60,7 +60,7 @@ class BasePageController<T> extends BaseController {
   int pageSize = 24;
   var canLoadMore = false.obs;
   var list = <T>[].obs;
-
+  
   Future refreshData() async {
     currentPage = 1;
     list.value = [];
@@ -103,7 +103,7 @@ class BasePageController<T> extends BaseController {
   }
 
   Future<List<T>> getData(int page, int pageSize) async {
-    return [];
+    return []; 
   }
 
   void scrollToTopOrRefresh() {

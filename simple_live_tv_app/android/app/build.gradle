@@ -57,15 +57,15 @@ android {
         versionName flutterVersionName
     }
 
-   signingConfigs {
-       release {
-           keyAlias keystoreProperties['keyAlias']
-           keyPassword keystoreProperties['keyPassword']
-           storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
-           storePassword keystoreProperties['storePassword']
-           v1SigningEnabled true
-           v2SigningEnabled true
-       }
+    signingConfigs {
+        release {
+            storeFile file('/mnt/d/tv/dart_simple_live/simple_live_tv_app/my-release-key.jks')
+            storePassword 'woazrh123!'
+            keyAlias 'my-alias'
+            keyPassword 'woazrh123!'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
     }
     buildTypes {
         buildTypes {

@@ -30,10 +30,10 @@ class BiliBiliWebLoginPage extends GetView<BiliBiliWebLoginController> {
           ),
         ),
         shouldOverrideUrlLoading: (webController, navigationAction) async {
-          var uri = navigationAction.request.url;
-          if (uri == null) {
+          if (navigationAction.request.url == null) {
             return NavigationActionPolicy.ALLOW;
           }
+          var uri = navigationAction.request.url!;
           if (uri.host == "m.bilibili.com" || uri.host == "www.bilibili.com") {
             await controller.logined();
             return NavigationActionPolicy.CANCEL;

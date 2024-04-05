@@ -35,12 +35,12 @@ android {
     ndkVersion flutter.ndkVersion
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
 
     sourceSets {
@@ -63,14 +63,14 @@ android {
         pickFirst 'lib/**/libc++_shared.so'
     }
     signingConfigs {
-       release {
-           keyAlias keystoreProperties['keyAlias']
-           keyPassword keystoreProperties['keyPassword']
-           storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
-           storePassword keystoreProperties['storePassword']
-           v1SigningEnabled true
-           v2SigningEnabled true
-       }
+        release {
+            storeFile file('/mnt/d/tv/dart_simple_live/simple_live_tv_app/my-release-key.jks')
+            storePassword 'woazrh123!'
+            keyAlias 'my-alias'
+            keyPassword 'woazrh123!'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
     }
     buildTypes {
         buildTypes {
@@ -97,5 +97,5 @@ flutter {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.23"
 }
