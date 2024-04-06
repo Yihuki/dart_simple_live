@@ -41,8 +41,8 @@ mixin PlayerMixin {
     player,
     configuration: AppSettingsController.instance.playerCompatMode.value
         ? const VideoControllerConfiguration(
-            vo: 'mediacodec_embed',
-            hwdec: 'mediacodec',
+            vo: 'dmabuf-wayland',
+            hwdec: 'vaapi',
           )
         : VideoControllerConfiguration(
             enableHardwareAcceleration:
